@@ -1,4 +1,9 @@
 package br.com.digitalhouse;
 
-public class ProfessorAdjunto {
+public class ProfessorAdjunto extends Professor{
+    //Attributes
+    private Integer horasMonitoria;
+
+
+
 }
