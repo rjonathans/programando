@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DigitalHouseManager {
+
     //Attributos
     List<Professor> professor = new ArrayList<>();
     List<Aluno>alunos;
@@ -34,6 +35,35 @@ public class DigitalHouseManager {
     }
 
     //Getters and Setters
-    
+    public List<Professor> getProfessor() {
+        return professor;
+    }
 
+    public void setProfessor(List<Professor> professor) {
+        this.professor = professor;
+    }
+
+    public List<Aluno> getAlunos() {
+        return alunos;
+    }
+
+    public void setAlunos(List<Aluno> alunos) {
+        this.alunos = alunos;
+    }
+
+    public List<Curso> getCurso() {
+        return curso;
+    }
+
+    public void setCurso(List<Curso> curso) {
+        this.curso = curso;
+    }
+
+    public List<Matricula> getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(List<Matricula> matricula) {
+        this.matricula = matricula;
+    }
 }

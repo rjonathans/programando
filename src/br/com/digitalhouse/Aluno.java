@@ -4,16 +4,16 @@ public class Aluno {
     //Attributes
     private String nome;
     private String sobrenome;
-    private Integer codigoluno;
+    private Integer codigoAluno;
 
     //Constructor
     public Aluno() {
     }
 
-    public Aluno(String nome, String sobrenome, Integer codigoluno) {
+    public Aluno(String nome, String sobrenome, Integer codigoAluno) {
         this.nome = nome;
         this.sobrenome = sobrenome;
-        this.codigoluno = codigoluno;
+        this.codigoAluno = codigoAluno;
     }
 
     //Getter and Setters
@@ -33,12 +33,12 @@ public class Aluno {
         this.sobrenome = sobrenome;
     }
 
-    public Integer getCodigoluno() {
-        return codigoluno;
+    public Integer getCodigoAluno() {
+        return codigoAluno;
     }
 
-    public void setCodigoluno(Integer codigoluno) {
-        this.codigoluno = codigoluno;
+    public void setCodigoAluno(Integer codigoAluno) {
+        this.codigoAluno = codigoAluno;
     }
 
 
