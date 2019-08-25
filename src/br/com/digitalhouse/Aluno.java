@@ -1,14 +1,13 @@
 package br.com.digitalhouse;
 
+import java.util.Objects;
+
 public class Aluno {
     //Attributes
     private String nome;
     private String sobrenome;
     private Integer codigoAluno;
 
-    //Constructor
-    public Aluno() {
-    }
 
     public Aluno(String nome, String sobrenome, Integer codigoAluno) {
         this.nome = nome;
@@ -17,7 +16,7 @@ public class Aluno {
     }
 
     //Getter and Setters
-    public String getNome() {
+     public String getNome() {
         return nome;
     }
 
@@ -41,5 +40,27 @@ public class Aluno {
         this.codigoAluno = codigoAluno;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Aluno)) return false;
+        Aluno aluno = (Aluno) o;
+        return Objects.equals(getNome(), aluno.getNome()) &&
+                Objects.equals(getSobrenome(), aluno.getSobrenome()) &&
+                Objects.equals(getCodigoAluno(), aluno.getCodigoAluno());
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(getNome(), getSobrenome(), getCodigoAluno());
+    }
+
+    @Override
+    public String toString() {
+        return "Aluno{" +
+                "nome='" + nome + '\'' +
+                ", sobrenome='" + sobrenome + '\'' +
+                ", codigoAluno=" + codigoAluno +
+                '}';
+    }
 }

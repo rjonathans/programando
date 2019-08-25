@@ -1,5 +1,7 @@
 package br.com.digitalhouse;
 
+import java.util.Objects;
+
 public class ProfessorTitular extends Professor{
     //Attributes
     private String especialidade;
@@ -19,4 +21,27 @@ public class ProfessorTitular extends Professor{
     public void setEspecialidade(String especialidade) {
         this.especialidade = especialidade;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof ProfessorTitular)) return false;
+        if (!super.equals(o)) return false;
+        ProfessorTitular that = (ProfessorTitular) o;
+        return Objects.equals(getEspecialidade(), that.getEspecialidade());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), getEspecialidade());
+    }
+
+    @Override
+    public String toString() {
+        return "ProfessorTitular{" +
+                "especialidade='" + especialidade + '\'' +
+                '}';
+    }
+
+
 }

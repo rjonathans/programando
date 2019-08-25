@@ -1,5 +1,7 @@
 package br.com.digitalhouse;
 
+import java.util.Objects;
+
 public abstract class Professor {
     //Attributes
     private String nome;
@@ -7,13 +9,16 @@ public abstract class Professor {
     private Integer tempoDeCasa;
     private Integer codigoProfessor;
 
+
     //Constructor
-    public Professor(String nome, String sobrenome, Integer tempoDeCasa, Integer codigoProfessor) {
-        this.nome = nome;
-        this.sobrenome = sobrenome;
-        this.tempoDeCasa = tempoDeCasa;
-        this.codigoProfessor = codigoProfessor;
+     public Professor(String nome, String sobrenome, Integer tempoDeCasa, Integer codigoProfessor) {
+        setNome(nome);
+        setSobrenome(sobrenome);
+        setTempoDeCasa(tempoDeCasa);
+        setCodigoProfessor(codigoProfessor);
     }
+
+
 
     //Getters and Setters
     public String getNome() {
@@ -47,4 +52,32 @@ public abstract class Professor {
     public void setCodigoProfessor(Integer codigoProfessor) {
         this.codigoProfessor = codigoProfessor;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Professor)) return false;
+        Professor professor = (Professor) o;
+        return Objects.equals(getNome(), professor.getNome()) &&
+                Objects.equals(getSobrenome(), professor.getSobrenome()) &&
+                Objects.equals(getTempoDeCasa(), professor.getTempoDeCasa()) &&
+                Objects.equals(getCodigoProfessor(), professor.getCodigoProfessor());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getNome(), getSobrenome(), getTempoDeCasa(), getCodigoProfessor());
+    }
+
+    @Override
+    public String toString() {
+        return "Professor{" +
+                "nome='" + nome + '\'' +
+                ", sobrenome='" + sobrenome + '\'' +
+                ", tempoDeCasa=" + tempoDeCasa +
+                ", codigoProfessor=" + codigoProfessor +
+                '}';
+    }
 }
+
+

@@ -6,15 +6,19 @@ import java.util.List;
 public class DigitalHouseManager {
 
     //Attributos
-    List<Professor> professor = new ArrayList<>();
-    List<Aluno>alunos;
-    List<Curso>curso;
-    List<Matricula>matricula;
+    private List<Professor> professor = new ArrayList<>();
+    private List<Aluno>alunos = new ArrayList<>();
+    private List<Curso>curso = new ArrayList<>();
+    private List<Matricula>matricula = new ArrayList<>();
+
 
     //Methods
-    public void registrarCurso(String nome, Integer codigoCurso,Integer quantidadeMaximaDeAlunos){
-
+    public void registrarCurso(String novoNome, Integer novoCodigoCurso,Integer novaQuantidadeMaximaDeAlunos){
+        Curso novoCurso = new Curso(novoNome,novoCodigoCurso,novaQuantidadeMaximaDeAlunos);
+        curso.add(novoCurso);
+        System.out.println("Curso de "+novoCurso.getNomeCurso()+" regstrado com sucesso!");
     }
+
     public void excluirCurso(Integer codigoCurso){
 
     }

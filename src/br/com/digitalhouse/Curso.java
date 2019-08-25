@@ -2,53 +2,62 @@ package br.com.digitalhouse;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Curso {
 
     //Attributes
     private String nomeCurso;
     private Integer codigoCurso;
-    private ProfessorAdjunto professorAdjunto;
     private ProfessorTitular professorTitular;
+    private ProfessorAdjunto professorAdjunto;
     private Integer quantidadeMaximaDeAlunos;
-    List<Aluno> alunos = new ArrayList<>();
+    private List<Aluno> alunosMatriculados = new ArrayList<>(40);
 
-
-    //Construtors
-
-
-    public Curso(String nomeCurso, List<Aluno> alunos) {
-        this.nomeCurso = nomeCurso;
-        this.alunos = alunos;
-    }
-
-    public Curso(String nomeCurso, Integer codigoCurso, ProfessorAdjunto professorAdjunto, ProfessorTitular professorTitular, Integer quantidadeMaximaDeAlunos, List<Aluno> alunos) {
+    public Curso(String nomeCurso, Integer codigoCurso, Integer quantidadeMaximaDeAlunos) {
         this.nomeCurso = nomeCurso;
         this.codigoCurso = codigoCurso;
-        this.professorAdjunto = professorAdjunto;
-        this.professorTitular = professorTitular;
-        this.quantidadeMaximaDeAlunos = quantidadeMaximaDeAlunos;
-        this.alunos = alunos;
+        this.quantidadeMaximaDeAlunos=quantidadeMaximaDeAlunos;
     }
 
     //Methods
-    public Boolean adicionarUmAluno(Aluno umAlunoProcurado) {
-        Aluno alunoEncontrado = null;
-        for (Aluno aluno : alunos) {
-            aluno.equals(umAlunoProcurado);
+    public boolean adicionarUmAluno(Aluno umAluno) {
+        for (Aluno aluno : alunosMatriculados) {
+            if ((!aluno.equals(umAluno)) && (quantidadeMaximaDeAlunos <= 40)) {
+                return true;
+            }
         }
-        if (alunoEncontrado == umAlunoProcurado) {
-            System.out.println("Aluno ja cadastrado!");
-            return false;
-        } else {if (quantidadeMaximaDeAlunos <= 40) {
-            alunos.add(umAlunoProcurado);
-            quantidadeMaximaDeAlunos=quantidadeMaximaDeAlunos+1;
-            System.out.println("Aluno " + umAlunoProcurado + " adicionado ao curso com sucesso.");
-            return true;
-        }else{
-            return false;
+        return false;
+    }
+
+    public void excluirAluno(Aluno umAluno) {
+        for (Aluno aluno : alunosMatriculados) {
+            if (aluno.equals(umAluno)) {
+                alunosMatriculados.remove(umAluno);
+                System.out.println("Aluno " + umAluno.getNome() + umAluno.getSobrenome() +
+                        " removido do curso " + getNomeCurso() + " com sucesso");
+            } else {
+                System.out.println("Aluno não encontrado");
+            }
+
         }
-        }
+    }
+
+    //Getters and setter
+    public ProfessorTitular getProfessorTitular() {
+        return professorTitular;
+    }
+
+    public void setProfessorTitular(ProfessorTitular professorTitular) {
+        this.professorTitular = professorTitular;
+    }
+
+    public ProfessorAdjunto getProfessorAdjunto() {
+        return professorAdjunto;
+    }
+
+    public void setProfessorAdjunto(ProfessorAdjunto professorAdjunto) {
+        this.professorAdjunto = professorAdjunto;
     }
 
 
@@ -68,35 +77,26 @@ public class Curso {
         this.codigoCurso = codigoCurso;
     }
 
-    public ProfessorAdjunto getProfessorAdjunto() {
-        return professorAdjunto;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Curso)) return false;
+        Curso curso = (Curso) o;
+        return Objects.equals(getNomeCurso(), curso.getNomeCurso()) &&
+                Objects.equals(getCodigoCurso(), curso.getCodigoCurso());
     }
 
-    public void setProfessorAdjunto(ProfessorAdjunto professorAdjunto) {
-        this.professorAdjunto = professorAdjunto;
+    @Override
+    public int hashCode() {
+        return Objects.hash(getNomeCurso(), getCodigoCurso());
     }
 
-    public ProfessorTitular getProfessorTitular() {
-        return professorTitular;
+    @Override
+    public String toString() {
+        return "Curso{" +
+                "nomeCurso='" + nomeCurso + '\'' +
+                ", codigoCurso=" + codigoCurso +
+                '}';
     }
 
-    public void setProfessorTitular(ProfessorTitular professorTitular) {
-        this.professorTitular = professorTitular;
-    }
-
-    public Integer getQuantidadeMaximaDeAlunos() {
-        return quantidadeMaximaDeAlunos;
-    }
-
-    public void setQuantidadeMaximaDeAlunos(Integer quantidadeMaximaDeAlunos) {
-        this.quantidadeMaximaDeAlunos = quantidadeMaximaDeAlunos;
-    }
-
-    public List<Aluno> getAlunos() {
-        return alunos;
-    }
-
-    public void setAlunos(List<Aluno> alunos) {
-        this.alunos = alunos;
-    }
 }
