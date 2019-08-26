@@ -5,8 +5,8 @@ public class ProfessorAdjunto extends Professor{
     private Integer horasMonitoria;
 
     //Constructor
-    public ProfessorAdjunto(String nome, String sobrenome, Integer tempoDeCasa, Integer codigoProfessor,Integer horasMonitoria) {
-        super(nome, sobrenome, tempoDeCasa, codigoProfessor);
+    public ProfessorAdjunto(String nome, String sobrenome, Integer codigoProfessor,Integer horasMonitoria) {
+        super(nome, sobrenome, codigoProfessor);
         this.horasMonitoria = horasMonitoria;
     }
 

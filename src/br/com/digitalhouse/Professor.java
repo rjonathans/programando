@@ -11,10 +11,10 @@ public abstract class Professor {
 
 
     //Constructor
-     public Professor(String nome, String sobrenome, Integer tempoDeCasa, Integer codigoProfessor) {
+     public Professor(String nome, String sobrenome, Integer codigoProfessor) {
         setNome(nome);
         setSobrenome(sobrenome);
-        setTempoDeCasa(tempoDeCasa);
+
         setCodigoProfessor(codigoProfessor);
     }
 

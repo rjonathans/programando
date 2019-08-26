@@ -15,9 +15,13 @@ public class Matricula {
     public Matricula(Aluno aluno,Curso curso) {
         this.aluno = aluno;
         this.curso = curso;
-        this.dataDoDia = new Date();
-        System.out.println(dataDoDia);
     }
+
+//    public Matricula(Aluno aluno,Curso curso) {
+//        this.aluno = aluno;
+//        this.curso = curso;
+////        this.dataDoDia = new Date();
+//    }
 
     public Aluno getAluno() {
         return aluno;

@@ -8,8 +8,8 @@ public class ProfessorTitular extends Professor{
 
 
     //Constructor
-    public ProfessorTitular(String nome, String sobrenome, Integer tempoDeCasa, Integer codigoProfessor, String especialidade) {
-        super(nome, sobrenome, tempoDeCasa, codigoProfessor);
+    public ProfessorTitular(String nome, String sobrenome, Integer codigoProfessor, String especialidade) {
+        super(nome, sobrenome, codigoProfessor);
         this.especialidade = especialidade;
     }
 

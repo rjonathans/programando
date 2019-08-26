@@ -9,7 +9,7 @@ public class Curso {
     //Attributes
     private String nomeCurso;
     private Integer codigoCurso;
-    private ProfessorTitular professorTitular;
+    private Professor professorTitular;
     private ProfessorAdjunto professorAdjunto;
     private Integer quantidadeMaximaDeAlunos;
     private List<Aluno> alunosMatriculados = new ArrayList<>(40);
@@ -19,6 +19,12 @@ public class Curso {
         this.codigoCurso = codigoCurso;
         this.quantidadeMaximaDeAlunos=quantidadeMaximaDeAlunos;
     }
+
+    public Curso(Integer codigoCurso, Integer codigo) {
+
+    }
+
+
 
     //Methods
     public boolean adicionarUmAluno(Aluno umAluno) {
@@ -44,7 +50,7 @@ public class Curso {
     }
 
     //Getters and setter
-    public ProfessorTitular getProfessorTitular() {
+    public Professor getProfessorTitular() {
         return professorTitular;
     }
 
