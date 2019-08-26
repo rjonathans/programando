@@ -10,15 +10,14 @@ public class Main {
         System.out.println("* * BEM VINDO AO SISTEMA DE ALUNOS * *");
 
         Scanner sc1 = new Scanner(System.in);
-        System.out.println("Cadastrar nome do professor Titular :\n");
+        System.out.print("DIGITE O NOME: ");
         String nome = sc1.next();
-        System.out.println("Cadastrar nome do professor Titular :\n");
+        System.out.print("DIGITE O SOBRENOME: ");
         String sobreNome = sc1.next();
-        System.out.println("Cadastrar nome do professor Titular :\n");
+        System.out.print("DIGITE O CODIGO: ");
         Integer codigo = sc1.nextInt();
-        System.out.println("QUAL ESPECIALIDADE? \nR.:");
+        System.out.print("DIGITE A ESPECIALIDADE: ");
         String especialidade = sc1.next();
-
 
         digitalHouseManager.registrarProfessorTitular(nome,sobreNome,codigo,especialidade);
 
