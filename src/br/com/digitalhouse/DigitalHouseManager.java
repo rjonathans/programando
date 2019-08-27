@@ -149,6 +149,9 @@ public class DigitalHouseManager {
         cursoEncontrado.setProfessorTitular(professorTitularEncontrado);
         cursoEncontrado.setProfessorAdjunto(professorAdjuntoEncontrado);
 
+        System.out.println("O curso de :"+cursoEncontrado.getNomeCurso()+"agora tem como Professor Titular: "+
+                cursoEncontrado.getProfessorTitular()+" e "+cursoEncontrado.getProfessorAdjunto()+"\ncomo Professor Adjunto");
+
 
     }
 
